@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import '../style/style.css';
 import 'jquery';
 import 'bootstrap';
@@ -14,7 +15,6 @@ promise.then(successCallback, failureCallback);
 let _cardApps =new CardApps();
 
 function successCallback(result){
-    debugger;
     result.map((item)=>{
         _cardApps.displayCard(item);
         cardId=item.id;

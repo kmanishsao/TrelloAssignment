@@ -29,7 +29,7 @@ export class CardApps {
     }
 
     displayCard(cards){
-            let element = this.card.getMarkup(cards.id);
+            let element = this.card.getMarkup(cards.id,cards.header);
             if(cards.message != undefined && cards.message!=null){
             let listCollection="";
              cards.message.map((item)=>{

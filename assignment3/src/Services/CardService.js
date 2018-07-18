@@ -3,6 +3,7 @@ export class CardService {
         this.geturl = CardService.url;
         this.fetchOption = CardService.fetchOption;
         this.PostOption=CardService.PostOption;
+        this.deleteOption=CardService.deleteOption;
     }
 
     getCard() {
@@ -20,7 +21,19 @@ export class CardService {
         return promise;
     }
 
-    
+    deleteCard(resourceId){
+        let promise = new Promise((resolve, reject) => {
+         let  url=this.geturl+"/"+resourceId;
+            fetch(url, this.deleteOption).then(
+                res => res.json()
+            ).then(json => {
+                resolve(json);
+            }, error => {
+                reject(new ResponseError('Service Error' + error.message));
+            })
+        });
+        return promise;
+    }
     postCard(message,resourceId,methodverb) {
         let promise = new Promise((resolve, reject) => {
             let stringify = require('json-stringify-safe');
@@ -46,7 +59,6 @@ export class CardService {
                 reject(new ResponseError('Service Error' + error.message));
             })
         });
-        debugger;
         return promise;
     }
 
@@ -68,5 +80,11 @@ CardService.PostOption = {
     },
     mode: 'cors',
 }
-
+CardService.deleteOption = {
+    method: 'Delete',
+    headers: {
+        'Content-Type': 'application-json'
+    },
+    mode: 'cors',
+}
 CardService.url = `http://127.0.0.1:3000/Cards`;
