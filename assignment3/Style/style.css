@@ -1,0 +1,59 @@
+body {
+    display: flex;  
+    flex-flow: column;
+    font-size: 14px;
+    font-family: "Fira Sans,Helvetica,Arial,sans-serif"; 
+    position: relative;
+   
+}
+  Header{
+    margin: auto; 
+    height: 60px;
+    background:blue;
+    margin:10px 10px;
+}  
+
+ 
+div#plh{
+    display: flex;
+    overflow-x: auto;
+    margin:auto;
+    flex-basis: space-between;
+    height:420px;
+     
+}
+.list{
+  
+    border-radius: 3px;
+    box-sizing: border-box;
+    max-height: 100%;
+    white-space: normal;
+    margin-top:10px;
+    margin-right:10px;
+}
+
+  
+
+.button-link{
+    border-radius: 3px;
+    font-weight: 700;
+    background: #e2e4e6;
+    box-shadow: 0 1px 0 0 #c4c9cc;
+    box-sizing: border-box;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    margin-top:10px;
+    width:280px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.button-link a{
+    color:#444;
+}
+
+
+
