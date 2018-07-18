@@ -32,16 +32,17 @@ export class CardApps {
             let element = this.card.getMarkup(cards.id,cards.header);
             if(cards.message != undefined && cards.message!=null){
             let listCollection="";
-             cards.message.map((item)=>{
-                 listCollection=listCollection+ `<li class="button-link">${item}</li>`;
-             })
             let lstItems= element.querySelector("ul");
-            if(lstItems!= undefined && lstItems!=null){
-                let anchortag = document.createElement("a");
-                anchortag.href="#";
-                anchortag.innerHTML = listCollection;
-                lstItems.appendChild(anchortag);
-            }
+             cards.message.map((item)=>{
+                 listCollection=`<li class="button-link">${item}</li><input type="text" style="display:none;" />`;
+                 if(lstItems!= undefined && lstItems!=null){
+                     let anchortag = document.createElement("a");
+                     anchortag.href="#";
+                     anchortag.innerHTML = listCollection;
+                     lstItems.appendChild(anchortag);
+                 }
+             })
+          
         }
             this.cardContainer.appendChild(element);
     }

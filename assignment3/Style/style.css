@@ -4,12 +4,12 @@ body {
     font-size: 14px;
     font-family: "Fira Sans,Helvetica,Arial,sans-serif"; 
     position: relative;
-   
+    margin:10px 10px;
 }
   Header{
     height:45px;
     background:blue;
-    margin:10px 10px;
+  
     justify-content: center;
     align-items: center;
 }  
@@ -65,7 +65,11 @@ div#plh{
 
 div.card{
     background-color:whitesmoke;
-}
+    min-height: 15vh;
+    justify-content: center;
+    align-content: center;
+    padding: 1px 1px;
+    }
 
 div.card-header{
     cursor: pointer;
@@ -80,6 +84,14 @@ div.card-header{
     left: 0;
     z-index: 10040;
    
+ }
+
+ cards textarea{
+    width:100%;
+ }
+ 
+ a li{
+     text-decoration: none;
  }
  
 

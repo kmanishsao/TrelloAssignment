@@ -24,7 +24,22 @@ export class Card {
       el.querySelector("#spntitle").innerText=header;
     }
     clickEvent.addEventListener('click', () => this.updateHeader(event));
+    el.querySelector("ul").addEventListener("click",()=>this.editList(event));
     return el;
+  }
+
+  editList(event){
+    event.target.style.display="none";
+    event.target.nextSibling.style.display="block";
+    event.target.nextSibling.focus();
+    event.target.nextSibling.onblur=()=>this.editInputList(event);
+  }
+
+  editInputList(event){
+    event.target.innerText=event.target.nextSibling.value;
+    event.target.style.display="block";
+    event.target.nextSibling.style.display="none";
+    this.saveList(event.target.offsetParent.querySelector("ul"));
   }
 
   updateHeader(event) {
@@ -40,20 +55,15 @@ export class Card {
     spanElement.innerText = inputElement.value;
     spanElement.setAttribute("style", "display:block");
     inputElement.setAttribute("style", "display:none");
-    debugger;
     this.saveList(spanElement);
   }
 
-  saveHeader(event,headerValue){
-    let element=event.offsetParent;
-    let payload={};
-
-  }
-
-  ArchiveCard(){
+   ArchiveCard(){
 
   }
   addCard(element) {
+ 
+    // element.target.innerText="";
     let docElement = document.createElement('div');
     docElement.innerHTML = this.AddCard;
     element.target.appendChild(docElement);
@@ -70,17 +80,17 @@ export class Card {
       //Append to the list
       let anchortag = document.createElement("a");
       anchortag.href = "#";
-      anchortag.innerHTML = `<li class="button-link">${cardList}</li>`;
+      anchortag.innerHTML = `<li class="button-link">${cardList}</li><input type="text" style="display:none;" />`;
       el.offsetParent.querySelector("ul").appendChild(anchortag);
       this.saveList(el.offsetParent.querySelector("ul"));
     }
     let rmNode = el.offsetParent.querySelector(".cards");
+   
     rmNode.parentNode.removeChild(rmNode);
-
+    // rmNode.parentNode.querySelector("a").innerText="# Add to Card";
   }
 
   saveList(list) {
-    debugger;
     let resourceId = list.offsetParent.parentNode.id;
     let domObject=list.offsetParent.parentNode;
     let headerText =domObject.querySelector("#spntitle");
@@ -119,9 +129,9 @@ Card.TEMPLATE = `<div class="card" style="width: 18rem;">
                          <div class="card-header">
                             <span id="spntitle">To Do</span>
                             <input type="text" style="display:none" id="inTitle" autofocus/>
-                           
+                         
                         </div>
-                        <a href="#><span style="float:right" title="Archive Card"  >...</span></a>
+                        <a href="#" style="float:right;">...</a>
                     <ul class="list-group list-group-flush">
                     </ul>
                     <a href="#" id="addCard">+ Add another card</a>
@@ -129,7 +139,7 @@ Card.TEMPLATE = `<div class="card" style="width: 18rem;">
 
 Card.InputItem = `  <div  class="cards">
                         <textarea id="txtArea" placeholder="Enter a title for this card .." style="height:54px;" autofocus></textarea>
-                    
+                    <br/>
                       <input type="submit" class="btn btn-success" value="Add Card" id="saveList"></input>
                       <input type="submit" class="btn btn-success" value="X" id="cancelList"></input>
                       </div>`;

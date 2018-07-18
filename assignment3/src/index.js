@@ -25,8 +25,6 @@ function failureCallback(error){
     console.log(error)
 }
 
-
-
 let _card=new Card();
     document.getElementById('add').addEventListener('click',function(){
     document.getElementById("plh").appendChild(_cardApps.addCards(++cardId));
