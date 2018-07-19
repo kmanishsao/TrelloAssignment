@@ -6,10 +6,48 @@ export class CardService {
         this.deleteOption=CardService.deleteOption;
     }
 
-    getCard() {
+    postBoards(item){
         let promise = new Promise((resolve, reject) => {
+            let stringify = require('json-stringify-safe');
+            fetch('http://127.0.0.1:3000/cardBoards', {               
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control':'no-cache'
+                },
+                method: "post",
+                body:stringify(item)
+            }).then(
+                res => res.json()
+            ).then(json => {
 
-            fetch(this.geturl, this.fetchOption).then(
+                resolve(json);
+            }, error => {
+                reject(new ResponseError('Service Error' + error.message));
+            })
+        });
+        return promise;
+    }
+    getBoards(){
+        let url =`http://127.0.0.1:3000/cardBoards`
+        let promise = new Promise((resolve, reject) => {
+            
+            fetch(url, this.fetchOption).then(
+                res => res.json()
+            ).then(json => {
+
+                resolve(json);
+            }, error => {
+                reject(new ResponseError('Service Error' + error.message));
+            })
+        });
+        return promise;
+    }
+
+    getCard(BoardId) {
+        let url =`http://127.0.0.1:3000/cardBoards/${BoardId}/cards`
+        let promise = new Promise((resolve, reject) => {
+            
+            fetch(url, this.fetchOption).then(
                 res => res.json()
             ).then(json => {
 
@@ -34,14 +72,14 @@ export class CardService {
         });
         return promise;
     }
-    postCard(message,resourceId,methodverb) {
+    postCard(message,resourceId,methodverb,BoardId) {
+       let url=`http://127.0.0.1:3000/Cards`;
         let promise = new Promise((resolve, reject) => {
             let stringify = require('json-stringify-safe');
-            let url="";
-            if(methodverb=="PUT")
-                url=this.geturl+"/"+resourceId;
-            else
-                url =this.geturl;
+          if(methodverb=="PUT"){
+            url=`http://127.0.0.1:3000/cards/`+resourceId;
+          }
+          
             fetch(url,  {
                
                 headers: {

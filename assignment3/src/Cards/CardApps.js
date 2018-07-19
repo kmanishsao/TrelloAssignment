@@ -4,7 +4,7 @@ import { Card } from './Card';
 export class CardApps {
     constructor() {
         
-         this.cardContainer =  document.getElementById("plh");
+         this.cardContainer =  document.querySelector("#plh");
          this.card=new Card();
     };
 
@@ -21,10 +21,10 @@ export class CardApps {
         element.value='';
     }
 
-    addCards(card){
+    addCards(card,boardId,boardName,cards){
         let cardItem= this.card.getMarkup(card);
         //add card to the database
-        this.card.saveCardId(card);
+        this.card.saveCardId(card,boardId,boardName,cards);
         return cardItem;
     }
 

@@ -9,7 +9,8 @@ export class Card {
     this.plhHolder = document.getElementById('plh');
     this.currentItem = null;
     this.CardService = new CardService();
-
+    this.boardId;
+    this.boardName="";
   }
   // Sets the message of the note.
   getMarkup(id,header) {
@@ -103,18 +104,24 @@ export class Card {
     })
 
     let messageList = {
+      cardBoardId: this.boardId,
+      boardname:this.boardName,
       header:headerText.innerText,
       message: msg
     };
-
+ 
     this.CardService.postCard(messageList, resourceId, "PUT");
   }
 
-  saveCardId(id) {
+  saveCardId(id,boardId,boardName,cards) {
+    this.boardName=boardName;
+    this.boardId=boardId;
     let message = {
-      "id": id
+      "cardBoardId": boardId,
+      "boardname":boardName,
+      "id":id
     };
-    this.CardService.postCard(message, id, "POST");
+    this.CardService.postCard(message, id, "POST",boardId);
 
   }
 
