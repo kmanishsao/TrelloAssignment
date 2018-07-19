@@ -6,15 +6,19 @@ export class CardService {
         this.deleteOption=CardService.deleteOption;
     }
 
-    postBoards(item){
+    postBoards(item,method="post",BoardId){
+        let url='http://127.0.0.1:3000/cardBoards';
+    if(method=="PUT"){
+        url=url+"/"+BoardId;
+    }
         let promise = new Promise((resolve, reject) => {
             let stringify = require('json-stringify-safe');
-            fetch('http://127.0.0.1:3000/cardBoards', {               
+            fetch(url, {               
                 headers: {
                     'Content-Type': 'application/json',
                     'Cache-Control':'no-cache'
                 },
-                method: "post",
+                method: method,
                 body:stringify(item)
             }).then(
                 res => res.json()

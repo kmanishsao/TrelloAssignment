@@ -41,11 +41,11 @@ $(function () {
         //Fetch Cards
         let liElement = event.target;
         
-        BoardId = liElement.id;
+        BoardId = event.target.parentElement.id;
         BoardName=liElement.innerText;
         _card.boardId=BoardId;
         _card.boardName=BoardName;
-        let promise = service.getCard(liElement.id);
+        let promise = service.getCard(BoardId);
         promise.then(successCallback, failureCallback);
 
 

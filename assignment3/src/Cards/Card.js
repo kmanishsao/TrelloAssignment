@@ -141,7 +141,8 @@ Card.TEMPLATE = `<div class="card" style="width: 18rem;">
                         <a href="#" style="float:right;">...</a>
                     <ul class="list-group list-group-flush">
                     </ul>
-                    <a href="#" id="addCard">+ Add another card</a>
+                    <div> <a href="#" id="addCard">+ Add another card</a></div>
+                   
                 </div>`;
 
 Card.InputItem = `  <div  class="cards">

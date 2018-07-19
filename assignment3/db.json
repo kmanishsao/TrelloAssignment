@@ -1,59 +1,28 @@
 {
   "cardBoards": [
     {
-      "id": 1,
+      "id": 2,
       "name": "Manish"
-    },
-    {
-      "name": "Piyush",
-      "id": 6
-    },
-    {
-      "name": "Yahoo",
-      "cards": [],
-      "id": 7
-    },
-    {
-      "name": "neel",
-      "cards": [],
-      "id": 8
     }
   ],
   "cards": [
     {
-      "boardname": "",
+      "cardBoardId": 2,
+      "boardname": "Manish",
       "header": "To Do",
       "message": [
-        "UIO"
+        "gma"
       ],
       "id": 2
     },
     {
-      "cardBoardId": "1",
-      "boardname": "Manish",
-      "header": "To Do",
+      "cardBoardId": 2,
+      "boardname": "",
+      "header": "aaa",
       "message": [
-        "Gmail"
+        "sass"
       ],
-      "id": 3
-    },
-    {
-      "cardBoardId": "6",
-      "boardname": "Piyush",
-      "header": "sss",
-      "message": [
-        "uj"
-      ],
-      "id": 4
-    },
-    {
-      "cardBoardId": "8",
-      "boardname": "neel",
-      "header": "To Do",
-      "message": [
-        "Neel"
-      ],
-      "id": 5
+      "id": 2
     }
   ]
 }
