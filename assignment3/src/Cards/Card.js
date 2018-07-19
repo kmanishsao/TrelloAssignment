@@ -19,6 +19,8 @@ export class Card {
     el.className = "list";
     el.innerHTML = this.Markup;
     let anchor = el.querySelector('#addCard');
+    let archive =el.querySelector("#addArchive");
+    archive.addEventListener('click',()=>this.ArchiveCard(event));
     anchor.addEventListener('click', () => this.addCard(event));
     let clickEvent = el.querySelector(".card-header");
     if(header!=undefined && header!=null && header!=""){
@@ -59,8 +61,10 @@ export class Card {
     this.saveList(spanElement);
   }
 
-   ArchiveCard(){
-
+   ArchiveCard(event){
+    let id =event.target.parentNode.parentElement.id
+    this.CardService.deleteCard(id);
+    $(event.target.parentNode.parentElement).remove();
   }
   addCard(element) {
  
@@ -130,6 +134,21 @@ export class Card {
     let rmNode = element.offsetParent.querySelector(".cards");
     rmNode.parentNode.removeChild(rmNode);
   }
+
+  allowDrop(event){
+    event.preventDefault();
+  }
+  drag(event){
+    debugger;
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  drop(event){
+    debugger;
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
 }
 
 Card.TEMPLATE = `<div class="card" style="width: 18rem;">
@@ -138,7 +157,7 @@ Card.TEMPLATE = `<div class="card" style="width: 18rem;">
                             <input type="text" style="display:none" id="inTitle" autofocus/>
                          
                         </div>
-                        <a href="#" style="float:right;">...</a>
+                        <a href="#" style="float:right;" id="addArchive">...</a>
                     <ul class="list-group list-group-flush">
                     </ul>
                     <div> <a href="#" id="addCard">+ Add another card</a></div>

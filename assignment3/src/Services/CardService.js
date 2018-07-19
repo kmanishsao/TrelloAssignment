@@ -125,7 +125,7 @@ CardService.PostOption = {
 CardService.deleteOption = {
     method: 'Delete',
     headers: {
-        'Content-Type': 'application-json'
+        'Content-Type': 'application/json'
     },
     mode: 'cors',
 }

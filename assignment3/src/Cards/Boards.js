@@ -31,7 +31,7 @@ export class Boards {
             
             }
         });
-        //$("#ulBoard").on("click",()=>this.renameBoard(event));
+        $("#ulBoard").on("dblclick",()=>this.renameBoard(event));
     }
 
     renameBoard(event) {

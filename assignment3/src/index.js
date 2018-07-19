@@ -58,7 +58,22 @@ $(function () {
                     cardId = item.id;
                 });
             }
-          
+         
+            $('.list').draggable({
+                cursor: 'move',
+                helper: "clone"
+            });
+            $(".list-group list-group-flush").droppable({
+                drop: function(event, ui) {
+                  var itemid = $(event.originalEvent.toElement).attr("itemid");
+                  $('.box-item').each(function() {
+                    if ($(this).attr("itemid") === itemid) {
+                      $(this).appendTo("#container1");
+                    }
+                  });
+                }
+              });
+ 
         }
     })
     $('#Boards').on('click', function () {
