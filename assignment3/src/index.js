@@ -36,7 +36,7 @@ let loadBoards = Board.getBoards();
 
 $(function () {
     $('#ulBoard').on('click', function (event) {
-        debugger;
+ 
         _cardPlh.innerHTML="";
         //Fetch Cards
         let liElement = event.target;
@@ -59,21 +59,6 @@ $(function () {
                 });
             }
          
-            $('.list').draggable({
-                cursor: 'move',
-                helper: "clone"
-            });
-            $(".list-group list-group-flush").droppable({
-                drop: function(event, ui) {
-                  var itemid = $(event.originalEvent.toElement).attr("itemid");
-                  $('.box-item').each(function() {
-                    if ($(this).attr("itemid") === itemid) {
-                      $(this).appendTo("#container1");
-                    }
-                  });
-                }
-              });
- 
         }
     })
     $('#Boards').on('click', function () {
@@ -90,19 +75,45 @@ document.getElementById('add').addEventListener('click', function () {
     _cardPlh.appendChild(_cardApps.addCards(++cardId, BoardId,BoardName,cards));
     //Post card Number in the database
 });
-
  
-function allowDrop(ev) {
-    ev.preventDefault();
-}
 
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
+//Drag and drop
 
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-}
+var dragged;
+
+/* events fired on the draggable target */
+document.addEventListener("drag", function( event ) {
  
+    event.dataTransfer.setData("text",event.target.innerHTML);
+}, false);
+
+document.addEventListener("dragstart", function( event ) {
+    // store a ref. on the dragged elem
+ 
+    dragged = event.target;
+    // make it half transparent
+    event.target.style.opacity = .5;
+   
+}, false);
+
+document.addEventListener("dragend", function( event ) {
+    // reset the transparency
+    event.target.style.opacity = "";
+   
+}, false);
+
+/* events fired on the drop targets */
+document.addEventListener("dragover", function( event ) {
+    // prevent default to allow drop
+    event.preventDefault();
+ 
+}, false);
+
+document.addEventListener("drop", function( event ) {
+    debugger;
+    // prevent default action (open as link for some elements)
+    event.preventDefault();
+     
+    event.target.parentElement.appendChild(dragged);
+  
+}, false);

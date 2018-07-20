@@ -28,9 +28,14 @@ export class Card {
     }
     clickEvent.addEventListener('click', () => this.updateHeader(event));
     el.querySelector("ul").addEventListener("click",()=>this.editList(event));
+   
+    el.setAttribute("draggable",true);
     return el;
   }
-
+  drag(ev){
+    debugger;
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
   editList(event){
     event.target.style.display="none";
     event.target.nextSibling.style.display="block";
@@ -135,20 +140,20 @@ export class Card {
     rmNode.parentNode.removeChild(rmNode);
   }
 
-  allowDrop(event){
-    event.preventDefault();
-  }
-  drag(event){
-    debugger;
-    ev.dataTransfer.setData("text", ev.target.id);
-  }
+  // allowDrop(event){
+  //   event.preventDefault();
+  // }
+  // drag(event){
+  //   debugger;
+  //   ev.dataTransfer.setData("text", ev.target.id);
+  // }
 
-  drop(event){
-    debugger;
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-  }
+  // drop(event){
+  //   debugger;
+  //   ev.preventDefault();
+  //   var data = ev.dataTransfer.getData("text");
+  //   ev.target.appendChild(document.getElementById(data));
+  // }
 }
 
 Card.TEMPLATE = `<div class="card" style="width: 18rem;">
