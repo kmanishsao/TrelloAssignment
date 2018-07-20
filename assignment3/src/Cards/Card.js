@@ -71,6 +71,10 @@ export class Card {
     this.CardService.deleteCard(id);
     $(event.target.parentNode.parentElement).remove();
   }
+  Archive(id)
+  {
+    this.CardService.deleteCard(id);
+  }
   addCard(element) {
  
     // element.target.innerText="";

@@ -1,71 +1,57 @@
 {
   "cardBoards": [
     {
-      "id": 2,
-      "name": "Manish"
+      "id": 1,
+      "name": "Test1"
     },
     {
-      "name": "NIW",
+      "name": "Sprint",
+      "cards": [],
+      "id": 2
+    },
+    {
+      "name": "Board-1",
       "cards": [],
       "id": 3
-    },
-    {
-      "name": "juhuh",
-      "cards": [],
-      "id": 4
-    },
-    {
-      "name": "Neel",
-      "cards": [],
-      "id": 5
     }
   ],
   "cards": [
     {
-      "cardBoardId": "2",
-      "boardname": "Manish",
-      "header": "To Do",
-      "message": [
-        "Manish"
-      ],
+      "cardBoardId": "1",
+      "boardname": "Sprint",
+      "header": "Story 1",
+      "message": [],
       "id": 2
     },
     {
-      "boardname": "",
-      "header": "To Do",
-      "message": [],
-      "id": 12
-    },
-    {
-      "boardname": "",
-      "header": "To Do",
+      "cardBoardId": "1",
+      "boardname": "Sprint",
+      "header": "Story2",
       "message": [
-        "sss"
-      ],
-      "id": 13
-    },
-    {
-      "cardBoardId": "",
-      "boardname": "Manish\nNIW\njuhuh\nNeel\n",
-      "header": "To Do",
-      "message": [
-        "uhgu"
-      ],
-      "id": 14
-    },
-    {
-      "cardBoardId": "",
-      "boardname": "Manish\nNIW\njuhuh\nNeel\n",
-      "id": 15
-    },
-    {
-      "cardBoardId": "2",
-      "boardname": "Manish",
-      "header": "To Do",
-      "message": [
-        "Yahoo"
+        "Jumbotran",
+        "Card Story"
       ],
       "id": 3
+    },
+    {
+      "cardBoardId": "3",
+      "boardname": "Board-1",
+      "header": "Backlog",
+      "message": [
+        "card 1"
+      ],
+      "id": 4
+    },
+    {
+      "cardBoardId": "3",
+      "boardname": "Board-1",
+      "header": "To Do",
+      "message": [
+        "card 1",
+        "card 3",
+        "card 2"
+      ],
+      "id": 6
     }
   ]
 }

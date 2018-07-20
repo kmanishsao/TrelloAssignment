@@ -80,11 +80,14 @@ document.getElementById('add').addEventListener('click', function () {
 //Drag and drop
 
 var dragged;
+var previousElement;
 
 /* events fired on the draggable target */
 document.addEventListener("drag", function( event ) {
+    previousElement= event.target.offsetParent.parentNode.id;
  
-    event.dataTransfer.setData("text",event.target.innerHTML);
+
+    
 }, false);
 
 document.addEventListener("dragstart", function( event ) {
@@ -110,10 +113,25 @@ document.addEventListener("dragover", function( event ) {
 }, false);
 
 document.addEventListener("drop", function( event ) {
-    debugger;
+ 
     // prevent default action (open as link for some elements)
     event.preventDefault();
-     
-    event.target.parentElement.appendChild(dragged);
+
+    let docEl=document.getElementById(previousElement);
+if(event.target.nodeName.toUpperCase() =='LI' || event.target.nodeName.toUpperCase() == 'A'){
+    event.target.offsetParent.querySelector("ul").appendChild(dragged);
+    _card.saveList( event.target);
+    let de=docEl.querySelector("li");
+    if(de=="" || de == "undefined" || de == null)
+    {
+        de= de=docEl.querySelector("ul");
+    }
+    _card.saveList(de);
+    
+}
+
+if(event.target.nodeName.toUpperCase() == 'MAIN'){
+    event.target.appendChild(dragged);
+}
   
 }, false);
