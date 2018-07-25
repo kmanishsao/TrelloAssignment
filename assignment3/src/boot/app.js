@@ -1,8 +1,17 @@
-  const createHTMLElement=(html)=>{
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content.firstElementChild;
+ 
+  import {Store} from './Store';
+  import {cardContainer} from '../Card/card';
+
+  Store.subscribe(handler);
+  
+  
+  function handler(){
+    debugger;
+    let state=Store.getState();
+ 
+    if (!$.isEmptyObject(state) && state !={})
+      cardContainer(state);
+ 
   }
 
 
-  module.exports=createHTMLElement;

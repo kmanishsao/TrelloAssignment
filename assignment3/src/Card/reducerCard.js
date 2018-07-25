@@ -1,7 +1,7 @@
 
   
 const reducerCard=(state={},action)=>{
-    debugger;
+ 
     switch(action.type){
         case "INIT":
             return Object.assign({}, state);

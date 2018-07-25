@@ -7,13 +7,9 @@ import { Card} from './Cards/Card';
 import {CardApps} from './Cards/CardApps';
 import {CardService} from './Services/CardService';
 import {Boards} from './Cards/Boards';
-import Store from './boot/Store';
+import {Store} from './boot/Store';
+import {app} from './boot/app';
 
-
-//Initialize state of the application
-
- 
-// componentState.Init();
 let BoardId = 1;
 let BoardName="";
 let cardId = 1;
@@ -43,18 +39,7 @@ $(function () {
         BoardName=liElement.innerText;
         _card.boardId=BoardId;
         _card.boardName=BoardName;
-        // let promise = service.getCard(BoardId);
-        // promise.then(successCallback, failureCallback);
-        debugger;
-        const st=require('./boot/Store');
-       let result= st.getState();
-       if (!$.isEmptyObject(result)) {
-        cards=result.cards;
-        result.map((item) => {
-            _cardApps.displayCard(item);
-            cardId = item.id;
-        });
-    }
+        let promise = service.getCard(BoardId);
         function successCallback(result) {
            
             if (!$.isEmptyObject(result)) {
