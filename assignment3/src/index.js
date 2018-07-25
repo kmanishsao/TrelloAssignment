@@ -31,7 +31,7 @@ let loadBoards = Board.getBoards();
 $(function () {
     $('#ulBoard').on('click', function (event) {
  
-        _cardPlh.innerHTML="";
+        // _cardPlh.innerHTML="";
         //Fetch Cards
         let liElement = event.target;
         
@@ -40,6 +40,17 @@ $(function () {
         _card.boardId=BoardId;
         _card.boardName=BoardName;
         let promise = service.getCard(BoardId);
+         promise.then(successCallback, failureCallback);
+    //     debugger;
+    //     const Store=require('./boot/Store');
+    //    let result= Store.Store.getState();
+    //    if (!$.isEmptyObject(result)) {
+    //     cards=result.cards;
+    //     result.map((item) => {
+    //         _cardApps.displayCard(item);
+    //         cardId = item.id;
+    //     });
+    //}
         function successCallback(result) {
            
             if (!$.isEmptyObject(result)) {
