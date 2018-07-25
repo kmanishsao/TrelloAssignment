@@ -33,7 +33,7 @@ export class Card {
     return el;
   }
   drag(ev){
-    debugger;
+    
     ev.dataTransfer.setData("text", ev.target.id);
   }
   editList(event){

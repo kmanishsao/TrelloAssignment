@@ -1,3 +1,5 @@
+import {Store} from '../boot/Store';
+
 export class CardService {
     constructor() {
         this.geturl = CardService.url;
@@ -48,13 +50,22 @@ export class CardService {
     }
 
     getCard(BoardId) {
+        debugger
+        Store.dispatch({
+            type:'INIT',
+            payload:{}
+        });
         let url =`http://127.0.0.1:3000/cardBoards/${BoardId}/cards`
         let promise = new Promise((resolve, reject) => {
             
             fetch(url, this.fetchOption).then(
                 res => res.json()
             ).then(json => {
-
+                debugger;
+                Store.dispatch({
+                    type:'COMPLETED',
+                    payload:json
+                });
                 resolve(json);
             }, error => {
                 reject(new ResponseError('Service Error' + error.message));

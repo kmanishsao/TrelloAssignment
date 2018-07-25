@@ -41,7 +41,6 @@ export class Boards {
         event.target.nextSibling.onblur=()=>this.editHeader(event);
     }
     editHeader(event){
-        debugger;
         let pid=event.target.parentElement.id;
         event.target.innerText=event.target.nextSibling.value;
         event.target.style.display="block";
