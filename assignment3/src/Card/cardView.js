@@ -1,6 +1,15 @@
-export const cardView = (cardMessage) => 
- `<ul class="list-group list-group-flush">
+export const cardView = (cardMessage,header) => 
+ `<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        <span id="spntitle">${header}</span>
+        <input type="text" style="display:none" id="inTitle" autofocus/>
+    </div>
+    <a href="#" style="float:right;" id="addArchive">...</a>
+    <ul class="list-group list-group-flush">
         ${cardMessage.map(item => `
         <a href="#"><li class="button-link">${item}</li><input type="text" style="display:none;" /></a>
          `)}
-   </ul>`;
+    </ul>
+    <div> <a href="#" id="addCard">+ Add another card</a></div>
+    </div>`;
+ 

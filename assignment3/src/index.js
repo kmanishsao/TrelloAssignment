@@ -31,7 +31,7 @@ let loadBoards = Board.getBoards();
 $(function () {
     $('#ulBoard').on('click', function (event) {
  
-        // _cardPlh.innerHTML="";
+        _cardPlh.innerHTML="";
         //Fetch Cards
         let liElement = event.target;
         

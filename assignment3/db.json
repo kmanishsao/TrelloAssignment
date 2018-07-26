@@ -5,9 +5,8 @@
       "name": "Test1"
     },
     {
-      "name": "Sprint",
-      "cards": [],
-      "id": 2
+      "id": 2,
+      "name": "jjhj"
     },
     {
       "id": 3,
@@ -26,9 +25,8 @@
   ],
   "cards": [
     {
-      "cardBoardId": "1",
-      "boardname": "Test1",
-      "header": "Story 1",
+      "boardname": "",
+      "header": "Story1",
       "message": [
         "Jumbotran",
         "Jumbotran"
@@ -49,20 +47,17 @@
       "id": 3
     },
     {
-      "cardBoardId": "3",
-      "boardname": "Board-1",
+      "boardname": "",
       "header": "Backlog",
       "message": [
-        "card 3"
+        "card5"
       ],
       "id": 4
     },
     {
-      "cardBoardId": "3",
-      "boardname": "Manish",
+      "boardname": "",
       "header": "To Do",
       "message": [
-        "card 1",
         "card 2",
         "card 1",
         "card 3"
