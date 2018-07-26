@@ -2,7 +2,7 @@
   "cardBoards": [
     {
       "id": 1,
-      "name": "test1"
+      "name": ""
     },
     {
       "id": 2,
@@ -21,6 +21,11 @@
       "name": "MAQNSIH",
       "cards": [],
       "id": 5
+    },
+    {
+      "name": "U",
+      "cards": [],
+      "id": 6
     }
   ],
   "cards": [

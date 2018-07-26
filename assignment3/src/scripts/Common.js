@@ -1,4 +1,5 @@
 import {CardService} from '../Services/CardService';
+import {CardApps} from '../Cards/CardApps';
 
 let _cardPlh=document.getElementById("plh");
 let BoardId = 1;
@@ -6,6 +7,7 @@ let BoardName="";
 let cardId = 1;
 let cards=[];
 let service =  new CardService();
+let _cardApps=new CardApps();
 
 document.getElementById('add').addEventListener('click', function () {
     _cardPlh.appendChild(_cardApps.addCards(++cardId, BoardId,BoardName,cards));
