@@ -6,9 +6,7 @@
   
   
   function handler(){
-    debugger;
     let state=Store.getState();
- 
     if (!$.isEmptyObject(state) && state !={})
       cardContainer(state);
  
