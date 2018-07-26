@@ -19,13 +19,12 @@ const ArchiveCard=(event)=>{
 
 const addCard=(event)=>{
     let docElement = document.createElement('div');
-    docElement.innerHTML = addCardView;
-    element.target.appendChild(docElement);
-    this.currentItem = 'txtArea';
-    let txtele = element.target.querySelector('textarea');
-    txtele.addEventListener('onblur', () => resetMaterialTextfield(element));
-    element.target.querySelector('#saveList').addEventListener('click', () => readCard(txtele));
-    element.target.querySelector('#cancelList').addEventListener('click', () => resetMaterialTextfield(txtele));
+    docElement.innerHTML = addCardView();
+    event.target.appendChild(docElement);
+    let txtele = event.target.querySelector('textarea');
+    txtele.addEventListener('onblur', () => resetMaterialTextfield(event));
+    event.target.querySelector('#saveList').addEventListener('click', () => readCard(txtele));
+    event.target.querySelector('#cancelList').addEventListener('click', () => resetMaterialTextfield(txtele));
 }
 
  const readCard=(el)=> {

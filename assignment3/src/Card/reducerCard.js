@@ -7,7 +7,6 @@ const reducerCard=(state={},action)=>{
             return Object.assign({});
         case "COMPLETED":
             return Object.assign({}, action.payload);
-
         default:
         return state;
     }
