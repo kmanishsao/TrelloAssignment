@@ -2,7 +2,7 @@
   "cardBoards": [
     {
       "id": 1,
-      "name": "Test1"
+      "name": "test1"
     },
     {
       "id": 2,
@@ -36,7 +36,7 @@
     {
       "cardBoardId": "1",
       "boardname": "Test1",
-      "header": "Story2",
+      "header": "Story5",
       "message": [
         "Jumbotran",
         "Card Story",
