@@ -140,6 +140,7 @@ const getCardList=(...carddata)=>{
            while(item!=null && item != undefined && item[index] != undefined){
                  boardId=item[index].cardBoardId;
                  boardName=item[index].boardname;
+                 console.log("**", item[index].message);
                  debugger;
             result= cardView(item[index].message,item[index].header);
             updateView( item[index].id,result);

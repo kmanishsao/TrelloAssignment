@@ -6,7 +6,7 @@ export const cardView = (cardMessage,header) =>
         </div>
     <a href="#" style="float:right;" id="addArchive">...</a>
         <ul class="list-group list-group-flush">
-            ${cardMessage.map((item) =>`<a href="#"><li class="button-link">${item}</li><input type="text" style="display:none;" /></a>`)}
+            ${cardMessage.map((item) =>`<a href="#"><li class="button-link">${item}</li><input type="text" style="display:none;" /></a>`).join('')}
         </ul>
     <div> <a href="#" id="addCard">+ Add another card</a></div>
     </div>`;
