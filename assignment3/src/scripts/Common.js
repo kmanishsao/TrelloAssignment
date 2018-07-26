@@ -1,5 +1,6 @@
 import {CardService} from '../Services/CardService';
 import {CardApps} from '../Cards/CardApps';
+import { Card} from '../Cards/Card';
 
 let _cardPlh=document.getElementById("plh");
 let BoardId = 1;
@@ -8,8 +9,10 @@ let cardId = 1;
 let cards=[];
 let service =  new CardService();
 let _cardApps=new CardApps();
+let _card=new Card();
 
 document.getElementById('add').addEventListener('click', function () {
+
     _cardPlh.appendChild(_cardApps.addCards(++cardId, BoardId,BoardName,cards));
 });
  
@@ -65,13 +68,13 @@ if(event.target.nodeName.toUpperCase() == 'MAIN'){
 
 $(function () {
     $('#ulBoard').on('click', function (event) {
- 
+
         _cardPlh.innerHTML="";
         //Fetch Cards
         let liElement = event.target;
         
         BoardId = event.target.parentElement.id;
-        // BoardName=liElement.innerText;
+        BoardName=liElement.innerText;
         // _card.boardId=BoardId;
         // _card.boardName=BoardName;
         let promise = service.getCard(BoardId);

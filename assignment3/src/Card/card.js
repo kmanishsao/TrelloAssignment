@@ -122,14 +122,15 @@ const saveList=(list)=> {
 
 const updateView=(divID,domElement)=>{
       let el = document.getElementById("plh");
-      el.appendChild(ServerDom(domElement, divID));
-      let anchor = el.querySelector('#addCard');
-      let archive = el.querySelector("#addArchive");
+      let updatedV=ServerDom(domElement, divID);
+      el.appendChild(updatedV);
+      let anchor = updatedV.querySelector('#addCard');
+      let archive = updatedV.querySelector("#addArchive");
       archive.addEventListener('click', () => ArchiveCard(event));
       anchor.addEventListener('click', () => addCard(event));
-      let clickEvent = el.querySelector(".card-header");
+      let clickEvent = updatedV.querySelector(".card-header");
       clickEvent.addEventListener('click', () => updateHeader(event));
-      el.querySelector("ul").addEventListener("click", () => editList(event));
+      updatedV.querySelector("ul").addEventListener("click", () => editList(event));
    
 }
 
@@ -140,7 +141,8 @@ const getCardList=(...carddata)=>{
            while(item!=null && item != undefined && item[index] != undefined){
                  boardId=item[index].cardBoardId;
                  boardName=item[index].boardname;
-            result= cardView(Object.assign([], item[index].message),item[index].header);
+                 debugger;
+            result= cardView(item[index].message,item[index].header);
             updateView( item[index].id,result);
             index=index+1;
            }

@@ -4,7 +4,7 @@ const reducerCard=(state={},action)=>{
  
     switch(action.type){
         case "INIT":
-            return Object.assign({}, state);
+            return Object.assign({});
         case "COMPLETED":
             return Object.assign({}, action.payload);
 

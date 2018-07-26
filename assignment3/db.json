@@ -2,72 +2,24 @@
   "cardBoards": [
     {
       "id": 1,
-      "name": ""
-    },
-    {
-      "id": 2,
-      "name": "jjhj"
-    },
-    {
-      "id": 3,
-      "name": "Manish"
-    },
-    {
-      "name": "Sushil",
-      "cards": [],
-      "id": 4
-    },
-    {
-      "name": "MAQNSIH",
-      "cards": [],
-      "id": 5
-    },
-    {
-      "name": "U",
-      "cards": [],
-      "id": 6
+      "name": "test"
     }
   ],
   "cards": [
     {
       "boardname": "",
-      "header": "Story1",
-      "message": [
-        "Jumbotran",
-        "Jumbotran"
-      ],
+      "header": "Manish",
+      "message": [],
       "id": 2
     },
     {
-      "cardBoardId": "1",
-      "boardname": "Test1",
-      "header": "Story5",
+      "boardname": "",
+      "header": "kumar",
       "message": [
-        "Jumbotran",
-        "Card Story",
-        "Jumbotran",
-        "Jumbotran",
-        "Jumbotran"
+        "Save",
+        "Business"
       ],
       "id": 3
-    },
-    {
-      "boardname": "",
-      "header": "Backlog",
-      "message": [
-        "card5"
-      ],
-      "id": 4
-    },
-    {
-      "boardname": "",
-      "header": "To Do",
-      "message": [
-        "card 2",
-        "card 1",
-        "card 3"
-      ],
-      "id": 6
     }
   ]
 }
